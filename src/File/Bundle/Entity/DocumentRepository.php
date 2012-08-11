@@ -46,8 +46,10 @@ class DocumentRepository extends EntityRepository
 	public function getTotalBySType($semester, $type)
 	{
 		$qb = $this->createQueryBuilder('d')
-				->whereSemester($qb, $semester)
-				->whereType($qb, $type)
+				->where('d.semester = :semester')
+				->setParameter('semester', $semester)
+				->andwhere('d.type = :type')
+				->setParameter('type', $type)
 				->select('COUNT(d)');
 
 		return (int) $qb->getQuery()

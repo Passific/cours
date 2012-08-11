@@ -38,7 +38,7 @@ class SiteController extends Controller
 		));
 	}
 	
-	public function showsemAction($semester)
+	public function showsemAction($semestre)
 	{
 		// On récupère le repository
 		$repository = $this->getDoctrine()
@@ -46,20 +46,20 @@ class SiteController extends Controller
 					->getRepository('FileBundle:Document');
 		
 		$types = array(
-				1 => $repository->getTotalBySType('Cours'),
-				2 => $repository->getTotalBySType('TP'),
-				3 => $repository->getTotalBySType('Sujet'),
-				4 => $repository->getTotalBySType('Correction'),
-				5 => $repository->getTotalBySType('Autre')
+				1 => $repository->getTotalBySType($semestre, 'Cours'),
+				2 => $repository->getTotalBySType($semestre, 'TP'),
+				3 => $repository->getTotalBySType($semestre, 'Sujet'),
+				4 => $repository->getTotalBySType($semestre, 'Correction'),
+				5 => $repository->getTotalBySType($semestre, 'Autre')
 				);
 		
 		return $this->render('SiteBundle:Site:showsem.html.twig', array(
 			'types' => $types,
-			'semestre' => $semester
+			'semestre' => $semestre
 		));
 	}
 	
-	public function showdocAction($semester, $type)
+	public function showdocAction($semestre, $type)
 	{
 		// On récupère le repository
 		$files = $this->getDoctrine()
@@ -67,14 +67,16 @@ class SiteController extends Controller
 					->getRepository('FileBundle:Document')
 					->findBy(
 						array(
-							'semester' => $semester,
+							'semester' => $semestre,
 							'type' => $type
 							),
 						array('id' => 'ASC')
 						);
 		
 		return $this->render('SiteBundle:Site:showdoc.html.twig', array(
-			'files' => $files
+			'files' => $files,
+			'semestre' => $semestre,
+			'type' => $type
 		));
 	}
 	
