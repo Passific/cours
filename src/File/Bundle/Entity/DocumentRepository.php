@@ -12,31 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class DocumentRepository extends EntityRepository
 {
-	public function whereSemester(Doctrine\ORM\QueryBuilder $qb, $semester)
-	{
-		$qb->andwhere('d.semester = :semester')
-			->setParameter('semester', $semester);
-
-		return $qb;
-	}
-	
-	public function whereType(Doctrine\ORM\QueryBuilder $qb, $type)
-	{
-		$qb->andwhere('d.type = :type')
-			->setParameter('type', $type);
-
-		return $qb;
-	}
-	
-	public function createQB()
-	{
-		return $this->createQueryBuilder('d');
-	}
-	
 	public function getTotalBySemester($semester)
 	{
 		$qb = $this->createQueryBuilder('d')
-				->whereSemester($qb, $semester)
+				->where('d.semester = :semester')
+				->setParameter('semester', $semester)
 				->select('COUNT(d)');
 
 		return (int) $qb->getQuery()

@@ -4,11 +4,12 @@
 
 {% block body %}
 	<h1>Semestre {{ semestre }} - {{ type }}</h1>
-        <h2>Liste des documents</h2>
-
-        <ul>
+	<h2>Liste des documents</h2>
+	<br>
+	
+	<ul>
 		{% for file in files %}
-			<li><a about="_blank" href="uploads/documents/{{ file.path }}">{{ file.name }}</a></li>
+			<li><a href="uploads/documents/{{ file.path }}">{{ file.name }}</a></li>
 		{% else %}
 			<li>Pas (encore !) de document...</li>
 		{% endfor %}

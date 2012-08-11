@@ -3,9 +3,11 @@
 {% block title %}{{ parent() }} - Index{% endblock %}
 
 {% block body %}
-        <h2>Liste des semestres</h2>
+	<h1>ERII</h1>
+	<h2>Liste des semestres</h2>
+	<br>
 
-        <ul>
+	<ul>
 		{% for sem in sems %}
 			{% if sem | length %}
 				<li><a href="{{ path('SiteBundle_showsem', {'semestre': loop.index}) }}">Semestre {{ loop.index }} ({{ sem }} documents)</a></li>
