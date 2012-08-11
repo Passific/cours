@@ -4,13 +4,14 @@
 
 {% block body %}
 	<h1>Semestre {{ semestre }}</h1>
-        <h2>Types de document</h2>
+	<h2>Types de document</h2>
+	<br>
 
-        <ul>
+	<ul>
 		<li><a href="{{ path('SiteBundle_showdoc', {'semestre': semestre, 'type': 'Cours'}) }}">Cours ({{ types[1] }} documents)</a></li>
-		<li><a href="{{ path('SiteBundle_showdoc', {'semestre': semestre, 'type': 'TP'}) }}">TP ({{ types[1] }} documents)</a></li>
-		<li><a href="{{ path('SiteBundle_showdoc', {'semestre': semestre, 'type': 'Sujet'}) }}">Sujet ({{ types[1] }} documents)</a></li>
-		<li><a href="{{ path('SiteBundle_showdoc', {'semestre': semestre, 'type': 'Correction'}) }}">Correction ({{ types[1] }} documents)</a></li>
-		<li><a href="{{ path('SiteBundle_showdoc', {'semestre': semestre, 'type': 'Autre'}) }}">Autre ({{ types[1] }} documents)</a></li>
+		<li><a href="{{ path('SiteBundle_showdoc', {'semestre': semestre, 'type': 'TP'}) }}">TP ({{ types[2] }} documents)</a></li>
+		<li><a href="{{ path('SiteBundle_showdoc', {'semestre': semestre, 'type': 'Sujet'}) }}">Sujet ({{ types[3] }} documents)</a></li>
+		<li><a href="{{ path('SiteBundle_showdoc', {'semestre': semestre, 'type': 'Correction'}) }}">Correction ({{ types[4] }} documents)</a></li>
+		<li><a href="{{ path('SiteBundle_showdoc', {'semestre': semestre, 'type': 'Autre'}) }}">Autre ({{ types[5] }} documents)</a></li>
 	</ul>
 {% endblock %}
