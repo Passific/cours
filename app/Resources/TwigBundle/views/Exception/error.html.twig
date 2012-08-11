@@ -1,0 +1,18 @@
+{% extends "::layout.html.twig" %}
+
+
+{% block title %}{{ parent() }} - Erreur : {{ status_text }}{% endblock %}
+
+{% block body %}
+	<h1>Oups...</h1>
+	
+	<hr>
+	
+	<p>Un erreur bizarre est survenue...</p>
+	<br>
+	Pour vous consoller voici ce que dis le serveur : "{{ status_code }} {{ status_text }}".
+	<br>
+	
+	<a class="btn btn-primary btn-large" href="{{ path('SiteBundle_index') }}">Accueil</a>
+
+{% endblock %}

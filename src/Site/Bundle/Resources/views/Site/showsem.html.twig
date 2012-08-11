@@ -1,0 +1,11 @@
+{% extends "SiteBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Semestre {{  }}{% endblock %}
+
+{% block body %}
+        <h2>Liste des semestres</h2>
+
+        <ul>
+		<li><a href="{{ path('SiteBundle_showtype', {'semestre': semestre}) }}">Semestre {{ loop.index }} {{ sem }}</a></li>
+	</ul>
+{% endblock %}
