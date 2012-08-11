@@ -1,0 +1,16 @@
+{% extends "::layout.html.twig" %}
+
+
+{% block title %}{{ parent() }} - Désolé{% endblock %}
+
+{% block body %}
+	<h1>Oups...</h1>
+	
+	<hr>
+	
+	<p>Désolé mais vous n'avez pas le droit d'accéder à cette page...</p>
+	<br>
+	
+	<a class="btn btn-primary btn-large" href="{{ path('SiteBundle_index') }}">Accueil</a>
+
+{% endblock %}

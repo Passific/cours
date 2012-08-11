@@ -1,0 +1,48 @@
+{% extends "::layout.html.twig" %}
+
+{% block body %}
+
+
+<form id="form_content" class="form-horizontal well span7" action="#" method="post" {{ form_enctype(form) }}>
+	<fieldset>
+		<legend>Mise en ligne d'un document</legend>
+		<h4>Attention le fichier ne doit pas dépasser 50Mo !</h4>
+		<br>
+
+		{% if form_errors(form)|length %}<div class="alert error">{{ form_errors(form) }}</div>{% endif %}
+		
+		<div>
+		{{ form_label(form.name, "Nom du document")  }}<b class="help-block">(sans extension ni caractères spéciaux)</b><br>
+		{% if form_errors(form.name)|length %}<div class="alert alert-error">{{ form_errors(form.name) }}</div>{% endif %}
+		{{ form_widget(form.name) }}
+		</div>
+		<br>
+		<div>
+		{{ form_label(form.semester, "Semestre") }}
+		{% if form_errors(form.semester)|length %}<div class="alert alert-error">{{ form_errors(form.semester) }}</div>{% endif %}
+		{{ form_widget(form.semester) }}
+		</div>
+		<br>
+		<div>
+		{{ form_label(form.type, "Type de document") }}
+		{% if form_errors(form.type)|length %}<div class="alert alert-error">{{ form_errors(form.type) }}</div>{% endif %}
+		{{ form_widget(form.type) }}
+		</div>
+		<br>
+		<div>
+		{{ form_label(form.file, "Document") }}
+		{% if form_errors(form.file)|length %}<div class="alert alert-error">{{ form_errors(form.file) }}</div>{% endif %}
+		{{ form_widget(form.file) }}
+		</div>
+	
+		{{ form_rest(form) }}
+	
+		<input type="hidden" name="PHP_SESSION_UPLOAD_PROGRESS" value="1234">
+		<input type="submit" class="btn btn-primary pull-right" value="Enregistrer" onSubmit='submition();'>
+	</fieldset>
+</form>
+<div id="output"></div>
+
+<script>function submition(){document.getElementById("form_content").style.display="none";document.getElementById("output").innerHTML="Patientez...";}</script>
+
+{% endblock %}

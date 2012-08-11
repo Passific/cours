@@ -1,0 +1,19 @@
+SiteBundle_index:
+    pattern:  /
+    defaults: { _controller: SiteBundle:Site:index }
+
+SiteBundle_ajouter:
+    pattern:  /ajouter
+    defaults: { _controller: SiteBundle:Site:ajouter }
+
+SiteBundle_showsem:
+    pattern:  /{semestre}
+    defaults: { _controller: SiteBundle:Site:showsem }
+    requirements:
+        semestre:  \d*
+
+SiteBundle_showdoc:
+    pattern:  /{semestre}/{type}
+    defaults: { _controller: SiteBundle:Site:showdoc }
+    requirements:
+        semestre:  \d*

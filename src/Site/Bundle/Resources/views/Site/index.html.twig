@@ -1,0 +1,17 @@
+{% extends "SiteBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Index{% endblock %}
+
+{% block body %}
+        <h2>Liste des semestres</h2>
+
+        <ul>
+		{% for sem in sems %}
+			{% if sem | length %}
+				<li><a href="{{ path('SiteBundle_showsem', {'semestre': loop.index}) }}">Semestre {{ loop.index }} ({{ sem }} documents)</a></li>
+			{% endif %}
+		{% else %}
+			<li>Pas (encore !) d'articles</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

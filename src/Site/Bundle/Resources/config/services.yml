@@ -1,0 +1,7 @@
+parameters:
+#    Site_site.example.class: Site\Bundle\Example
+
+services:
+#    Site_blog.example:
+#        class: %Site_site.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
