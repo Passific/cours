@@ -10,10 +10,10 @@ SiteBundle_showsem:
     pattern:  /{semestre}
     defaults: { _controller: SiteBundle:Site:showsem }
     requirements:
-        semestre:  \d*
+        semestre:  \d+
 
 SiteBundle_showdoc:
-    pattern:  /{semestre}/{type}
+    pattern:  /{semestre}-{type}
     defaults: { _controller: SiteBundle:Site:showdoc }
     requirements:
-        semestre:  \d*
+        semestre:  \d+

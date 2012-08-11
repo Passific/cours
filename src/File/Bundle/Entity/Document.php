@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
+ * @ORM\Table(name="Cours")
  * @ORM\Entity(repositoryClass="File\Bundle\Entity\DocumentRepository")
  */
 class Document
@@ -63,8 +64,8 @@ class Document
 	{
 		if (null !== $this->file) {
 			// do whatever you want to generate a unique name
-			$this->path = uniqid().'.'.$this->file->guessExtension();
-			$this->name = preg_replace('/([^.a-z0-9]+)/i', '-', $this->name);
+			$this->name = preg_replace('/([^.a-z0-9\s]+)/i', '-', $this->name);
+			$this->path = uniqid().'-'.$this->name.'.'.$this->file->guessExtension();
 		}
 	}
 	
