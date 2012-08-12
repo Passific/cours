@@ -17,9 +17,14 @@
 				<p>L'idéal pour réviser !</p>
 				<p>
 					<a class="btn btn-primary btn-large" target="_black" href="http://www.polytech-montpellier.fr/ERII/intranet/login.php">Intranet ERII Polytech &raquo;</a>
-					<a class="btn btn-success btn-large" target="_black" href="http://passific.fr/contact?Subject=Cours%20ERII">Une amélioration ? &raquo;</a>
+					<a class="btn btn-success btn-large" href="javascript:UserVoice.showPopupWidget();">Une amélioration ? &raquo;</a>
 					<a class="btn btn-warning btn-large" target="_black" href="http://github.com/Passific/cours/issues">Un bug ? &raquo;</a>
 				</p>
+			</div>
+			<div class="breadcrumb">
+				{% block breadcrumb %}
+					<li><a href="{{ path('SiteBundle_index') }}">Accueil</a><span class="divider">&gt;</span></li>
+				{% endblock %}
 			</div>
 			
 			{# On gère les messages flash de façon globale pour tout le bundle
@@ -29,6 +34,7 @@
 			{% for type in ['info', 'success', 'error'] %}
 				{% for message in app.session.flashbag.get(type) %}
 					<div class="alert alert-{{ type }}">
+						<a class="close" data-dismiss="alert">×</a> 
 						{{ message }}
 					</div>
 				{% endfor %}
@@ -36,10 +42,10 @@
 
 			<div class="row">
 				<div id="menu" class="span3">
-					<h3>Les cours</h3>
 					<ul class="nav nav-pills nav-stacked">
-						<li><a href="{{ path('SiteBundle_index') }}">Consulter les cours</a></li>
-						<li><a href="{{ path('SiteBundle_ajouter') }}">Ajouter un cours</a></li>
+						<li class="nav-header">Les cours</li>
+						<li><a href="{{ path('SiteBundle_index') }}"><i class="icon-book"></i> Consulter les cours</a></li>
+						<li><a href="{{ path('SiteBundle_ajouter') }}"><i class="icon-download-alt"></i> Ajouter un cours</a></li>
 					</ul>
 				</div>
 				<div id="content" class="span9">
@@ -51,7 +57,10 @@
 			<hr>
 
 			<footer>
-				<p>Axel LORENTÉ &copy; 2012</p>
+				<p>
+					Axel LORENTÉ 
+					<a rel="license" target="_black" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img alt="Licence Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>
+					 2012</p>
 			</footer>
 		</div>
 
@@ -67,6 +76,14 @@
 	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	</script>
+	<script type="text/javascript">
+	var uvOptions = {};
+	(function() {
+	var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+	uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/TLSWJmritOCyCrZ3jZkXtA.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
 	})();
 	</script>
 	{% endblock %}

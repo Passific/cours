@@ -1,7 +1,14 @@
 {% extends "::layout.html.twig" %}
 
-{% block body %}
+{% block title %}{{ parent() }} - Ajouter un cours{% endblock %}
 
+
+{% block breadcrumb %}
+	{{ parent() }}
+	<li class="active">Ajouter un cours</li>
+{% endblock %}
+
+{% block body %}
 
 <form id="form_content" class="form-horizontal well span7" action="#" method="post" {{ form_enctype(form) }}>
 	<fieldset>
