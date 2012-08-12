@@ -2,6 +2,12 @@
 
 {% block title %}{{ parent() }} - {{ semestre }} - {{ type }}{% endblock %}
 
+{% block breadcrumb %}
+	{{ parent() }}
+	<li><a href="{{ path('SiteBundle_showsem', {'semestre': semestre}) }}">Semestre {{ semestre }}</a><span class="divider">&gt;</span></li>
+	<li class="active">{{ type }}</li>
+{% endblock %}
+
 {% block body %}
 	<h1>Semestre {{ semestre }} - {{ type }}</h1>
 	<h2>Liste des documents</h2>

@@ -2,6 +2,11 @@
 
 {% block title %}{{ parent() }} - Semestre {{ semestre }}{% endblock %}
 
+{% block breadcrumb %}
+	{{ parent() }}
+	<li class="active">Semestre {{ semestre }}</li>
+{% endblock %}
+
 {% block body %}
 	<h1>Semestre {{ semestre }}</h1>
 	<h2>Types de document</h2>
