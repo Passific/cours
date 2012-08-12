@@ -1,108 +1,72 @@
-Symfony Standard Edition
+Gestionnaire de cours en ligne
 ========================
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony2
-application that you can use as the skeleton for your new applications.
+Bienvenu sur l'application Symfony2 de gestion des cours en ligne.
 
-This document contains information on how to download, install, and start
-using Symfony. For a more detailed explanation, see the [Installation][1]
-chapter of the Symfony Documentation.
+Ce document contient des informations sur comment télécharger, installer, et démarrer
+avec ce gestionnaire. Pout plus d'information veuillez contacter [Passific][1].
 
-1) Installing the Standard Edition
+1) Téléchargement
 ----------------------------------
 
-When it comes to installing the Symfony Standard Edition, you have the
-following options.
+Voici comment procéder pour installer le Gestionnaire de cours en ligne.
 
-### Use Composer (*recommended*)
+### Télécharger l'archive des fichiers
 
-As Symfony uses [Composer][2] to manage its dependencies, the recommended way
-to create a new project is to use it.
+Téléchargez l'[archive][2] et décompressez-la quelque part
+dans votre dossier web à la racine du répertoire de votre serveur.
 
-If you don't have Composer yet, download it following the instructions on
-http://getcomposer.org/ or just run the following command:
 
-    curl -s http://getcomposer.org/installer | php
-
-Then, use the `create-project` command to generate a new Symfony application:
-
-    php composer.phar create-project symfony/framework-standard-edition path/to/install
-
-Composer will install Symfony and all its dependencies under the
-`path/to/install` directory.
-
-### Download an Archive File
-
-To quickly test Symfony, you can also download an [archive][3] of the Standard
-Edition and unpack it somewhere under your web server root directory.
-
-If you downloaded an archive "without vendors", you also need to install all
-the necessary dependencies. Download composer (see above) and run the
-following command:
-
-    php composer.phar install
-
-2) Checking your System Configuration
+2) Vérification
 -------------------------------------
 
-Before starting coding, make sure that your local system is properly
-configured for Symfony.
+Avant de pouvoir commencer à l'utiliser, vérifiez que votre système local est correctement
+configuré pour Symfony.
 
-Execute the `check.php` script from the command line:
+Exécutez le script `check.php` depuis la ligne de commande:
 
     php app/check.php
 
-Access the `config.php` script from a browser:
+Accédez au script `config.php` depuis un navigateur:
 
-    http://localhost/path/to/symfony/app/web/config.php
+    http://localhost/cours/app/web/config.php
 
-If you get any warnings or recommendations, fix them before moving on.
+Si vous avez des avertissements ou des recommandations, corrigez-les avant de passer à la suite.
 
-3) Browsing the Demo Application
+Attention, Symfony doit pouvoir écrire dans les dossiers `app/cache` et `app/logs`, pour cela exécutez la commande :
+
+    chmod 777 app/cache
+    chmod 777 app/logs
+
+3) Installation
 --------------------------------
 
-Congratulations! You're now ready to use Symfony.
+Veuillez éditer le fichier `app/config/parameters.yml` afin de configurer votre base de données.
 
-From the `config.php` page, click the "Bypass configuration and go to the
-Welcome page" link to load up your first Symfony page.
+Si vous ne l'avez pas déjà, fait il faut créer la base de données, pour cela exécutez la commande:
 
-You can also use a web-based configurator by clicking on the "Configure your
-Symfony Application online" link of the `config.php` page.
+    php app/console doctrine:database:create
 
-To see a real-live Symfony page in action, access the following page:
+Ensuite, il faut générer les tables à l'intérieur de cette base de données. Exécutez donc la commande suivante :
 
-    web/app_dev.php/demo/hello/Fabien
+    php app/console doctrine:schema:update --force
 
-4) Getting started with Symfony
+
+4) Démarrer
 -------------------------------
 
-This distribution is meant to be the starting point for your Symfony
-applications, but it also contains some sample code that you can learn from
-and play with.
+Félicitations ! Vous êtes maintenant prêt pour utiliser le Gestionnaire de cours en ligne.
 
-A great way to start learning Symfony is via the [Quick Tour][4], which will
-take you through all the basic features of Symfony2.
+Vous pouvez dès à présent mettre des cour en ligne en utilisant le formulaire demise en ligne de document :
 
-Once you're feeling good, you can move onto reading the official
-[Symfony2 book][5].
+    http://localhost/ajouter
 
-A default bundle, `AcmeDemoBundle`, shows you Symfony2 in action. After
-playing with it, you can remove it by following these steps:
-
-  * delete the `src/Acme` directory;
-
-  * remove the routing entries referencing AcmeBundle in
-    `app/config/routing_dev.yml`;
-
-  * remove the AcmeBundle from the registered bundles in `app/AppKernel.php`;
-
-  * remove the `web/bundles/acmedemo` directory;
-
-  * remove the `security.providers`, `security.firewalls.login` and
-    `security.firewalls.secured_area` entries in the `security.yml` file or
-    tweak the security configuration to fit your needs.
 
 What's inside?
+---------------
+
+Gestionnaire de cours en ligne est basé sur le framework [Symfony][3].
+
 ---------------
 
 The Symfony Standard Edition is configured with the following defaults:
@@ -152,16 +116,11 @@ It comes pre-configured with the following bundles:
   * [**SensioGeneratorBundle**][15] (in dev/test env) - Adds code generation
     capabilities
 
-  * **AcmeDemoBundle** (in dev/test env) - A demo bundle with some example
-    code
-
 Enjoy!
 
-[1]:  http://symfony.com/doc/2.1/book/installation.html
-[2]:  http://getcomposer.org/
-[3]:  http://symfony.com/download
-[4]:  http://symfony.com/doc/2.1/quick_tour/the_big_picture.html
-[5]:  http://symfony.com/doc/2.1/index.html
+[1]:  https://github.com/Passific/
+[2]:  https://github.com/Passific/cours
+[3]:  http://symfony.com/
 [6]:  http://symfony.com/doc/2.1/bundles/SensioFrameworkExtraBundle/index.html
 [7]:  http://symfony.com/doc/2.1/book/doctrine.html
 [8]:  http://symfony.com/doc/2.1/book/templating.html
