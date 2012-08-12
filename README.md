@@ -1,7 +1,7 @@
 Gestionnaire de cours en ligne
 ========================
 
-Bienvenu sur l'application Symfony2 de gestion des cours en ligne.
+Bienvenue sur l'application Symfony2 de gestion des cours en ligne.
 
 Ce document contient des informations sur comment télécharger, installer, et démarrer
 avec ce gestionnaire. Pout plus d'information veuillez contacter [Passific][1].
@@ -57,7 +57,7 @@ Ensuite, il faut générer les tables à l'intérieur de cette base de données.
 
 Félicitations ! Vous êtes maintenant prêt pour utiliser le Gestionnaire de cours en ligne.
 
-Vous pouvez dès à présent mettre des cour en ligne en utilisant le formulaire demise en ligne de document :
+Vous pouvez dès à présent mettre des cours en ligne en utilisant le formulaire de mise en ligne de document :
 
     http://localhost/ajouter
 
