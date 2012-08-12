@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Gestionnaire de cours en ligne : " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Gestionnaire de cours en ligne</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Passific/cours">View on GitHub</a>
+
+          <h1 id="project_title">Gestionnaire de cours en ligne</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Passific/cours/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Passific/cours/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>Gestionnaire de cours en ligne</h1>
+
+<p>Bienvenue sur l'application Symfony2 de gestion des cours en ligne.</p>
+
+<p>Ce document contient des informations sur comment télécharger, installer, et démarrer
+avec ce gestionnaire. Pout plus d'information veuillez contacter <a href="https://github.com/Passific/">Passific</a>.</p>
+
+<h2>1) Téléchargement</h2>
+
+<p>Voici comment procéder pour installer le Gestionnaire de cours en ligne.</p>
+
+<h3>Télécharger l'archive des fichiers</h3>
+
+<p>Téléchargez l'<a href="https://github.com/Passific/cours">archive</a> et décompressez-la quelque part
+dans votre dossier web à la racine du répertoire de votre serveur.</p>
+
+<h2>2) Vérification</h2>
+
+<p>Avant de pouvoir commencer à l'utiliser, vérifiez que votre système local est correctement
+configuré pour Symfony.</p>
+
+<p>Exécutez le script <code>check.php</code> depuis la ligne de commande:</p>
+
+<pre><code>php app/check.php
+</code></pre>
+
+<p>Accédez au script <code>config.php</code> depuis un navigateur:</p>
+
+<pre><code>http://localhost/cours/app/web/config.php
+</code></pre>
+
+<p>Si vous avez des avertissements ou des recommandations, corrigez-les avant de passer à la suite.</p>
+
+<p>Attention, Symfony doit pouvoir écrire dans les dossiers <code>app/cache</code> et <code>app/logs</code>, pour cela exécutez la commande :</p>
+
+<pre><code>chmod 777 app/cache
+chmod 777 app/logs
+</code></pre>
+
+<h2>3) Installation</h2>
+
+<p>Veuillez éditer le fichier <code>app/config/parameters.yml</code> afin de configurer votre base de données.</p>
+
+<p>Si vous ne l'avez pas déjà, fait il faut créer la base de données, pour cela exécutez la commande:</p>
+
+<pre><code>php app/console doctrine:database:create
+</code></pre>
+
+<p>Ensuite, il faut générer les tables à l'intérieur de cette base de données. Exécutez donc la commande suivante :</p>
+
+<pre><code>php app/console doctrine:schema:update --force
+</code></pre>
+
+<h2>4) Démarrer</h2>
+
+<p>Félicitations ! Vous êtes maintenant prêt pour utiliser le Gestionnaire de cours en ligne.</p>
+
+<p>Vous pouvez dès à présent mettre des cours en ligne en utilisant le formulaire de mise en ligne de document :</p>
+
+<pre><code>http://localhost/ajouter
+</code></pre>
+
+<h2>What's inside?</h2>
+
+<p>Gestionnaire de cours en ligne est basé sur le framework <a href="http://symfony.com/">Symfony</a>.</p>
+
+<hr><p>The Symfony Standard Edition is configured with the following defaults:</p>
+
+<ul>
+<li><p>Twig is the only configured template engine;</p></li>
+<li><p>Doctrine ORM/DBAL is configured;</p></li>
+<li><p>Swiftmailer is configured;</p></li>
+<li><p>Annotations for everything are enabled.</p></li>
+</ul><p>It comes pre-configured with the following bundles:</p>
+
+<ul>
+<li><p><strong>FrameworkBundle</strong> - The core Symfony framework bundle</p></li>
+<li><p><a href="http://symfony.com/doc/2.1/bundles/SensioFrameworkExtraBundle/index.html"><strong>SensioFrameworkExtraBundle</strong></a> - Adds several enhancements, including
+template and routing annotation capability</p></li>
+<li><p><a href="http://symfony.com/doc/2.1/book/doctrine.html"><strong>DoctrineBundle</strong></a> - Adds support for the Doctrine ORM</p></li>
+<li><p><a href="http://symfony.com/doc/2.1/book/templating.html"><strong>TwigBundle</strong></a> - Adds support for the Twig templating engine</p></li>
+<li><p><a href="http://symfony.com/doc/2.1/book/security.html"><strong>SecurityBundle</strong></a> - Adds security by integrating Symfony's security
+component</p></li>
+<li><p><a href="http://symfony.com/doc/2.1/cookbook/email.html"><strong>SwiftmailerBundle</strong></a> - Adds support for Swiftmailer, a library for
+sending emails</p></li>
+<li><p><a href="http://symfony.com/doc/2.1/cookbook/logging/monolog.html"><strong>MonologBundle</strong></a> - Adds support for Monolog, a logging library</p></li>
+<li><p><a href="http://symfony.com/doc/2.1/cookbook/assetic/asset_management.html"><strong>AsseticBundle</strong></a> - Adds support for Assetic, an asset processing
+library</p></li>
+<li><p><a href="http://jmsyst.com/bundles/JMSSecurityExtraBundle/master"><strong>JMSSecurityExtraBundle</strong></a> - Allows security to be added via
+annotations</p></li>
+<li><p><a href="http://jmsyst.com/bundles/JMSDiExtraBundle/master"><strong>JMSDiExtraBundle</strong></a> - Adds more powerful dependency injection
+features</p></li>
+<li><p><strong>WebProfilerBundle</strong> (in dev/test env) - Adds profiling functionality and
+the web debug toolbar</p></li>
+<li><p><strong>SensioDistributionBundle</strong> (in dev/test env) - Adds functionality for
+configuring and working with Symfony distributions</p></li>
+<li><p><a href="http://symfony.com/doc/2.1/bundles/SensioGeneratorBundle/index.html"><strong>SensioGeneratorBundle</strong></a> (in dev/test env) - Adds code generation
+capabilities</p></li>
+</ul><p>Enjoy!</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Gestionnaire de cours en ligne maintained by <a href="https://github.com/Passific">Passific</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
