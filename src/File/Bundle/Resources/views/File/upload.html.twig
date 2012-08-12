@@ -10,7 +10,7 @@
 
 {% block body %}
 
-<form id="form_content" class="form-horizontal well span7" action="#" method="post" {{ form_enctype(form) }}>
+<form id="form_content" class="form-horizontal well span7" action="#" onSubmit='submition();' method="post" {{ form_enctype(form) }}>
 	<fieldset>
 		<legend>Mise en ligne d'un document</legend>
 		<h4>Attention le fichier ne doit pas dépasser 50Mo !</h4>
@@ -45,11 +45,11 @@
 		{{ form_rest(form) }}
 	
 		<input type="hidden" name="PHP_SESSION_UPLOAD_PROGRESS" value="1234">
-		<input type="submit" class="btn btn-primary pull-right" value="Enregistrer" onSubmit='submition();'>
+		<input id="submitb" type="submit" class="btn btn-primary pull-right" value="Enregistrer">
+		<div id="loading" style="display:none;float:right;"><img src="/img/arrows32.gif" alt="En cours..." title="En cours..."> Patientez...</div>
 	</fieldset>
 </form>
-<div id="output"></div>
 
-<script>function submition(){document.getElementById("form_content").style.display="none";document.getElementById("output").innerHTML="Patientez...";}</script>
+<script>function submition(){document.getElementById("submitb").style.display="none";document.getElementById("loading").style.display="inline-block";}</script>
 
 {% endblock %}

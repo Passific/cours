@@ -13,6 +13,7 @@ class DocumentType extends AbstractType
 			->add('name')
 			->add('semester', 'choice', array(
 				'choices' => array(
+					''	=>	'-- Choisissez un semestre --',
 					'5'	=>	'Semestre 5',
 					'6'	=>	'Semestre 6',
 					'7'	=>	'Semestre 7',
@@ -21,7 +22,9 @@ class DocumentType extends AbstractType
 					'10'	=>	'Semestre 10')))
 			->add('type', 'choice', array(
 				'choices' => array(
+					''		=>	'-- Choisissez un type --',
 					'cours'	=>	'Cours',
+					'td'		=>	'TD',
 					'tp'		=>	'TP',
 					'sujet'	=>	'Sujet',
 					'correction'	=>	'Correction',
