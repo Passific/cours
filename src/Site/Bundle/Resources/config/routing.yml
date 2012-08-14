@@ -6,6 +6,10 @@ SiteBundle_ajouter:
     pattern:  /ajouter
     defaults: { _controller: SiteBundle:Site:ajouter }
 
+SiteBundle_liens:
+    pattern:  /liens
+    defaults: { _controller: SiteBundle:Site:liens }
+
 SiteBundle_showsem:
     pattern:  /{semestre}
     defaults: { _controller: SiteBundle:Site:showsem }
