@@ -1,0 +1,25 @@
+{% extends "SiteBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Liens utiles{% endblock %}
+
+{% block breadcrumb %}
+	{{ parent() }}
+	<li class="active">Liens utiles</li>
+{% endblock %}
+
+{% block body %}
+	<h1></h1>
+	<h2>Liste des liens utiles</h2>
+	<br>
+
+	<ul>
+		{% for lien in liens %}
+			<li><a target="_black" href="{{ lien.url }}">{{ lien.nom }}</a></li>
+		{% else %}
+			<li>Pas (encore !) de liens...</li>
+		{% endfor %}
+	</ul>
+	<br><br>
+	<p><a class="btn btn-info" href="javascript:UserVoice.showPopupWidget();">Faire une demande d'ajout de lien &raquo;</a></p>
+
+{% endblock %}

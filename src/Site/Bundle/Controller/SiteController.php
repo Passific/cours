@@ -102,4 +102,24 @@ class SiteController extends Controller
 
 		return array('form' => $form->createView());
 	}
+	
+	public function liensAction()
+	{
+		// On récupère le repository
+	//	$repository = $this->getDoctrine()
+	//				->getEntityManager()
+	//				->getRepository('FileBundle:Document');
+		
+		// Temporairement en "dur" 
+		$liens = array(
+				1 => array(
+					"url" => "http://f5zv.pagesperso-orange.fr/RADIO/RM/RM23/RM23p/RM23p.html",
+					"nom" => "Abaque de Smith",
+					),
+				);
+		
+		return $this->render('SiteBundle:Site:liens.html.twig', array(
+			'liens' => $liens,
+		));
+	}
 }
