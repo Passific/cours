@@ -47,10 +47,11 @@ class SiteController extends Controller
 		
 		$types = array(
 				1 => $repository->getTotalBySType($semestre, 'Cours'),
-				2 => $repository->getTotalBySType($semestre, 'TP'),
-				3 => $repository->getTotalBySType($semestre, 'Sujet'),
-				4 => $repository->getTotalBySType($semestre, 'Correction'),
-				5 => $repository->getTotalBySType($semestre, 'Autre')
+				2 => $repository->getTotalBySType($semestre, 'TD'),
+				3 => $repository->getTotalBySType($semestre, 'TP'),
+				4 => $repository->getTotalBySType($semestre, 'Sujet'),
+				5 => $repository->getTotalBySType($semestre, 'Correction'),
+				6 => $repository->getTotalBySType($semestre, 'Autre')
 				);
 		
 		return $this->render('SiteBundle:Site:showsem.html.twig', array(
