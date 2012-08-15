@@ -15,7 +15,7 @@
 	
 	<ul>
 		{% for file in files %}
-			<li><a href="uploads/documents/{{ file.path }}">{{ file.name }}</a></li>
+			<li><a href="uploads/documents/{{ file.path }}" target="_blank">{{ file.name }}</a></li>
 		{% else %}
 			<li>Pas (encore !) de document...</li>
 		{% endfor %}
