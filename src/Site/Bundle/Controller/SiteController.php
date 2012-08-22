@@ -91,7 +91,7 @@ class SiteController extends Controller
 		// On exécute le traitement du formulaire. S'il retourne true, alors le formulaire a bien été traité
 		if( $formHandler->process() )
 		{
-			$this->get('session')->setFlash('info', 'Document enregistré avec succès !!!');
+			$this->get('session')->setFlash('success', 'Document enregistré avec succès !!!');
 			return $this->redirect( $this->generateUrl('SiteBundle_index') );
 		}
 
@@ -116,6 +116,10 @@ class SiteController extends Controller
 				1 => array(
 					"url" => "http://f5zv.pagesperso-orange.fr/RADIO/RM/RM23/RM23p/RM23p.html",
 					"nom" => "Abaque de Smith",
+					),
+				2 => array(
+					"url" => "http://fisik.free.fr/",
+					"nom" => "Cours de GE",
 					),
 				);
 		
